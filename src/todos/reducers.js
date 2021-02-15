@@ -24,7 +24,7 @@ export const todos = (state = initialState, action) => {
       const { todo: todoToRemove } = payload;
       return {
         ...state,
-        data: state.data.filter((todo) => todo.id !== todoToRemove.id),
+        data: state.data.filter((todo) => todo._id !== todoToRemove._id),
       };
     }
     case MARK_TODO_AS_COMPLETED: {
@@ -32,7 +32,7 @@ export const todos = (state = initialState, action) => {
       return {
         ...state,
         data: state.data.map((todo) => {
-          if (todo.id === updatedTodo.id) {
+          if (todo._id === updatedTodo._id) {
             return updatedTodo;
           }
           return todo;

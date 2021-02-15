@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
+
 import NewTodoForm from "./NewTodoForm";
 import TodoListItem from "./TodoListItem";
+import styled from "styled-components";
 import {
   getTodosLoading,
   getCompletedTodos,
@@ -38,7 +39,7 @@ const TodoList = ({
       <h3>Incompleted:</h3>
       {incompleteTodos.map((todo) => (
         <TodoListItem
-          key={todo.text}
+          key={todo._id}
           todo={todo}
           onRemovePressed={onRemovePressed}
           onCompletedPressed={onCompletedPressed}
@@ -47,7 +48,7 @@ const TodoList = ({
       <h3>Completed:</h3>
       {completedTodos.map((todo) => (
         <TodoListItem
-          key={todo.text}
+          key={todo._id}
           todo={todo}
           onRemovePressed={onRemovePressed}
           onCompletedPressed={onCompletedPressed}
